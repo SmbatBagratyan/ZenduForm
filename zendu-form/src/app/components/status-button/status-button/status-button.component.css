@@ -1,0 +1,22 @@
+.main {
+    display: flex;
+    align-items: center;
+    border: 1px solid #FF3D00;
+    border-radius: 4px;
+    padding: 3px 16px;
+}
+
+.dot {
+    display: flex;
+    padding-right: 8px;
+}
+
+.text {
+    font-weight: var(--small-font-weight);
+    font-size: var(--font-size-14);
+    color: #FF3D00;
+}
+
+.text span {
+    white-space: pre;
+}

@@ -1,0 +1,27 @@
+<div>
+    <div class="year-and-month">
+        <span (click)="openYearPicker = !openYearPicker">{{selectedMonth}} {{selectedYear}}
+            <img class="year-arrow" src="../../../../assets/img/icons/arrow.svg">
+        </span>
+        <span class="month-arrows">
+            <span (click)="changeMonth('decrease');stopPropagation($event)">
+                <img class="month-arrow-left" src="../../../../assets/img/icons/arrow.svg">
+            </span>
+            <span (click)="changeMonth('increase');stopPropagation($event)">
+                <img class="month-arrow-right" src="../../../../assets/img/icons/arrow.svg">
+            </span>
+        </span>
+    </div>
+    <div class="calendar-container" *ngIf="!openYearPicker">
+        <ng-container  *ngFor="let day of daysLsit; let i = index">
+            <br *ngIf="i!=0 && i%7 === 0">
+            <span class="day" (click)="selectDay($event.target.innerText);stopPropagation($event)">{{day}}</span>
+        </ng-container>
+    </div>
+    <div class="calendar-container" *ngIf="openYearPicker">
+        <ng-container  *ngFor="let year of listOfYears; let i = index">
+            <br *ngIf="i!=0 && i%7 === 0">
+            <span class="years" (click)="selectYear(year);stopPropagation($event)">{{year}}</span>
+        </ng-container>
+    </div>
+</div>

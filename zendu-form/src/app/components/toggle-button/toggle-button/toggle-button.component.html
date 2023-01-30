@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="section" (click)="mapChoosed = !mapChoosed" [ngClass]="{'active': mapChoosed}">
+        <span>Map</span>
+    </div>
+    <div class="section" (click)="mapChoosed = !mapChoosed" [ngClass]="{'active': !mapChoosed}">
+        <span>List</span>
+    </div>
+</div>

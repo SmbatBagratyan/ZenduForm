@@ -1,0 +1,17 @@
+:root {
+
+    /* font */
+    --font-family-roboto: Roboto;
+
+    /* font-weights */
+    --small-font-weight: 400;
+    --middle-font-weight: 500;
+    --big-font-weight: 700;
+
+    /* font-sizes */
+    --font-size-14: 14px;
+    --font-size-16: 16px;
+    --font-size-18: 18px;
+    --font-size-32: 32px;
+
+}

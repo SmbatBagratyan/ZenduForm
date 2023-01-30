@@ -1,0 +1,21 @@
+<div class="main">
+    <div class=info>
+        <ul>
+            <li class="header">
+                Work Flow: Requires Location
+            </li>
+            <li>
+               <span class="left-part"> From:</span> {{from}}
+            </li>
+            <li>
+               <span class="left-part">To:</span> {{to}}
+            </li>
+            <li>
+               <span class="left-part"> Due Date:</span> {{date}}
+            </li>
+        </ul>
+        <div class="status-button">
+            <app-status-button [status] ="status"></app-status-button>
+        </div>
+    </div>
+</div>

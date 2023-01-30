@@ -1,0 +1,54 @@
+.block {
+    display: block;
+}
+
+.year-arrow {
+    margin-left: 5px;
+}
+
+.year-and-month {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+.month-arrows {
+    margin-right: 15px;
+}
+
+.calendar-container {
+    margin-top: 5px;
+}
+
+.month-arrow-left {
+  transform: rotate(90deg);
+  margin-right: 3px;
+}
+
+.month-arrow-right {
+  transform: rotate(-90deg);
+}
+
+.year-and-month span:last-child {
+    margin-left: auto;
+}
+
+.years {
+  display: inline-block;
+  width: 32px;
+  height: 20px;
+  font-size: 13px;
+  text-align: center;
+  padding-left: 2px;
+  cursor: pointer;
+}
+
+.day {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 13px;
+    cursor: pointer;
+}

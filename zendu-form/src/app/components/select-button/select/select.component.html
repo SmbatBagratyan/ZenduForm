@@ -1,0 +1,17 @@
+<div class="select" (click)="isOpen = ! isOpen">
+    <button type="button" class="btn">
+        <span class="option">{{selectedOption}}</span>
+        <img class="arrow" src="../../../../assets/img/icons/arrow.svg">
+    </button>
+    <div class="dropdown" [ngClass]="{'dropdown_isOpend': isOpen === true}">
+        <ul *ngIf="!calendar">
+            <li (click)="selectOption(option)" *ngFor="let option of listOfOptions">
+                <span>{{option}}</span>
+            </li>
+        </ul>
+        <div *ngIf="calendar" class="calendar" (click)="stopPropagation($event)" >
+            <app-calendar (yearChange)="setYear($event)" (dayChange)="setDay($event)" (monthChange)="setMonth($event)"></app-calendar>
+        </div>
+    </div>
+
+</div>

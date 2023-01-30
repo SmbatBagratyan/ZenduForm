@@ -1,0 +1,49 @@
+<div class="site-container">
+    <div class="section-1">
+        <h1>Submissions</h1>
+        <div class="buttons-content">
+
+            <div class="search input">
+                <app-search></app-search>
+            </div>
+            <div class="first-input input">
+                <app-select [listOfOptions]="listOfOptions"></app-select>
+            </div>
+            <div class="input">
+                <app-select [listOfOptions]="listOfOptions"></app-select>
+            </div>
+            <div class="last-input input">
+                <app-select [calendar]="true"></app-select>
+            </div>
+            <div class="btn">
+                <app-toggle-button></app-toggle-button>
+            </div>
+            <div class="export">
+                <button (click)="isClicked = !isClicked" [ngClass]="{'clicked' :isClicked}">Export</button>
+            </div>
+        </div>
+    </div>
+    <div class="work-flow-content">
+        <div class="work-flow-section">
+            <div>
+                <app-work-flow [from]="from" [to]="to" [date]="date" [status]="'Uncomplete'"></app-work-flow>
+            </div>
+            <div>
+                <app-work-flow [from]="from" [to]="to" [date]="date" [status]="'Low Risk'"></app-work-flow>
+            </div>
+            <div>
+                <app-work-flow [from]="from" [to]="to" [date]="date" [status]="'Uncomplete'"></app-work-flow>
+            </div>
+            <div>
+                <app-work-flow [from]="from" [to]="to" [date]="date" [status]="'Needs Review'"></app-work-flow>
+            </div>
+        </div>
+        <div class="map-section">
+            <agm-map [latitude]='51.678418' [longitude]='7.809007' >
+                <agm-marker [latitude]='51.678418' [longitude]='7.809007' [iconUrl]="'../../../../assets//img//icons/marker.svg'"></agm-marker>
+                <agm-marker [latitude]='50.678418' [longitude]='6.809007' [iconUrl]="'../../../../assets//img//icons/marker.svg'"></agm-marker>
+                <agm-marker [latitude]='51.678418' [longitude]='5.809007' [iconUrl]="'../../../../assets//img//icons/marker.svg'"></agm-marker>    
+            </agm-map>
+        </div>
+    </div>
+</div>
