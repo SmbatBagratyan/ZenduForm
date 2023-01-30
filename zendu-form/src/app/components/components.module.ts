@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
 
 // components
@@ -24,11 +24,18 @@ import { StatusButtonComponent } from './status-button/status-button/status-butt
         BrowserAnimationsModule,
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyAUJ83WxbyrGi31XVI22FRSsgxFDOvjXrs'
-          })
+        })
     ],
-    declarations: [HeaderComponent, SubmissionContainerComponent, SelectComponent, SearchComponent, CalendarComponent, ToggleButtonComponent, WorkFlowComponent, StatusButtonComponent],
+    declarations: [HeaderComponent,
+        SubmissionContainerComponent,
+        SelectComponent,
+        SearchComponent,
+        CalendarComponent,
+        ToggleButtonComponent,
+        WorkFlowComponent,
+        StatusButtonComponent],
     providers: [],
-    exports: [HeaderComponent,SubmissionContainerComponent],
+    exports: [HeaderComponent, SubmissionContainerComponent],
 })
 
 export class ComponentsModule { }

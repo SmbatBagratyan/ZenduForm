@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToggleButtonComponent implements OnInit {
 
-  mapChoosed: boolean = true;
-  
+  mapChoosed = true;
+
   constructor() { }
 
   ngOnInit() {

@@ -11,15 +11,15 @@ export class CalendarComponent implements OnInit {
   @Output() monthChange: EventEmitter<number> = new EventEmitter();
   @Output() dayChange: EventEmitter<number> = new EventEmitter();
 
-  openYearPicker: boolean = false;
+  openYearPicker = false;
   selectedYear: any;
   selectedMonth: string;
   selectedDay: any;
   selectedMonthIndex = 0;
-  selectedOption = 'Select Status'
+  selectedOption = 'Select Status';
 
-  
-  listOfYears = []
+
+  listOfYears = [];
   monthsLsit = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   daysLsit = [];
 
@@ -27,7 +27,7 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit() {
     this.getYears();
-    
+
     this.selectedYear = new Date().getFullYear();
     this.yearChange.emit(this.selectedYear);
 
@@ -44,8 +44,8 @@ export class CalendarComponent implements OnInit {
     let currentYear;
     currentYear = new Date().getUTCFullYear();
     for (let i = 0; i < 50; i++) {
-      currentYear = parseInt(currentYear);
-      this.listOfYears.push('' + (currentYear + i))
+      currentYear = parseInt(currentYear, 10);
+      this.listOfYears.push('' + (currentYear + i));
     }
   }
 
@@ -54,15 +54,13 @@ export class CalendarComponent implements OnInit {
   }
 
   selectYear(year) {
-    event.stopPropagation();
     this.selectedYear = year;
     this.yearChange.emit(year);
-    this.getDays(this.selectedMonthIndex,this.selectedYear);
-    
+    this.getDays(this.selectedMonthIndex, this.selectedYear);
+
   }
 
-  changeMonth(value: String) {
-    event.stopPropagation();
+  changeMonth(value: string) {
     if (value === 'increase') {
 
       this.selectedMonthIndex++;
@@ -70,7 +68,7 @@ export class CalendarComponent implements OnInit {
       if (this.selectedMonthIndex > 11) {
         this.selectedMonthIndex = 0;
         this.selectedMonth = this.monthsLsit[this.selectedMonthIndex];
-        this.selectedYear = parseInt(this.selectedYear) + 1;
+        this.selectedYear = parseInt(this.selectedYear, 10) + 1;
       } else {
         this.selectedMonth = this.monthsLsit[this.selectedMonthIndex];
       }
@@ -82,7 +80,7 @@ export class CalendarComponent implements OnInit {
       if (this.selectedMonthIndex < 0) {
         this.selectedMonthIndex = 11;
         this.selectedMonth = this.monthsLsit[this.selectedMonthIndex];
-        this.selectedYear = parseInt(this.selectedYear) - 1;
+        this.selectedYear = parseInt(this.selectedYear, 10) - 1;
       } else {
         this.selectedMonth = this.monthsLsit[this.selectedMonthIndex];
       }
@@ -90,16 +88,16 @@ export class CalendarComponent implements OnInit {
     }
 
     this.monthChange.emit(this.selectedMonthIndex);
-    this.getDays(this.selectedMonthIndex,this.selectedYear);
+    this.getDays(this.selectedMonthIndex, this.selectedYear);
   }
 
-  getDays(month,year) {
+  getDays(month, year) {
 
     month = month + 1;
     this.daysLsit = [];
-    let dayNumber = new Date(year, month,0).getDate();
-    
-    for(let i=1;i <= dayNumber;i++) {
+    const dayNumber = new Date(year, month, 0).getDate();
+
+    for (let i = 1; i <= dayNumber; i++) {
       this.daysLsit.push(i);
     }
   }

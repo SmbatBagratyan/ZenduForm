@@ -7,48 +7,48 @@ import { EventEmitter } from 'protractor';
   styleUrls: ['./select.component.css']
 })
 export class SelectComponent implements OnInit {
-  ;
-  @Input() calendar: boolean = false;
+
+  @Input() calendar = false;
   @Input() listOfOptions: Array<string>;
 
   date: Date;
 
   currentMonth: Date;
 
-  isOpen: boolean = false;
-  selectedOption: any; 
-  
+  isOpen = false;
+  selectedOption: any;
+
 
   constructor() { }
 
   ngOnInit() {
-    if(!this.calendar) {
+    if (!this.calendar) {
       this.selectedOption = 'Select Status';
-    }else {
+    } else {
 
     }
   }
 
   setYear(event?: Event) {
-      
-      let date = new Date();
+
+      const date = new Date();
       let day;
       let month;
-  
+
       day = date.getDate();
       day = day < 9 ? '0' + day : day;
-  
+
       month = date.getUTCMonth() + 1;
       month = month < 9 ? '0' + month : month;
-  
+
       this.selectedOption = day + '/' + month + '/' + event;
-    
+
   }
 
   setDay(event) {
     let day = event;
     day = day < 9 ? '0' + day : day;
-    this.selectedOption = String(this.selectedOption).substring(2,String(this.selectedOption).length);
+    this.selectedOption = String(this.selectedOption).substring(2, String(this.selectedOption).length);
     this.selectedOption = day + this.selectedOption;
   }
 
@@ -56,10 +56,14 @@ export class SelectComponent implements OnInit {
     let month = event + 1;
     month = month < 9 ? '0' + month : month;
 
-    let firstPart = String(this.selectedOption).substring(0,3);
-    let secondPart =  String(this.selectedOption).substring(5,String(this.selectedOption).length);
+    const firstPart = String(this.selectedOption).substring(0, 3);
+    const secondPart =  String(this.selectedOption).substring(5, String(this.selectedOption).length);
     this.selectedOption = firstPart + month + secondPart;
 
+  }
+
+  selectOption(option) {
+    this.selectedOption = option;
   }
 
   stopPropagation(event: Event) {
